@@ -15,11 +15,22 @@ if (WIN32)
     set (HELLO_SRCS ${HELLO_SRCS} WinSupport.c)
 endif ()
 
+# cmake configured options
 include_directories (
 	"${PROJECT_SOURCE_DIR}/include"
 )
 
+# compile utils subdirectory
+option (USE_UTILS ON)
+
+if (USE_UTILS)
+	include_directories ("${PROJECT_SOURCE_DIR}/utils")
+	add_subdirectory (utils)
+	set (EXTRA_LIBS ${EXTRA_LIBS} Utils)
+endif (USE_UTILS)
+
 add_executable (Hello ${HELLO_SRCS})
+target_link_libraries(Hello ${EXTRA_LIBS})
 
 find_library (TCL_LIBRARY
     NAMES tcl tcl84 tcl83 tcl82 tcl80
