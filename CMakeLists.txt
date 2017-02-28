@@ -1,5 +1,6 @@
 cmake_minimum_required (VERSION 3.5)
 project (Hello)
+set (CMAKE_BUILD_TYPE Release)
 
 set (VERSION_MAJOR 1)
 set (VERSION_MINOR 0)
