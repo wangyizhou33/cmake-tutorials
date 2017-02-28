@@ -6,7 +6,7 @@ set (VERSION_MINOR 0)
 
 configure_file (
     "${PROJECT_SOURCE_DIR}/cmake/Config.h.in"
-    "${PROJECT_SOURCE_DIR}/include/Config.h"
+    "${PROJECT_BINARY_DIR}/Config.h"
 )
 
 set (HELLO_SRCS src/hello_world.cc)
@@ -18,6 +18,7 @@ endif ()
 # cmake configured options
 include_directories (
 	"${PROJECT_SOURCE_DIR}/include"
+	"${PROJECT_BINARY_DIR}"
 )
 
 # compile utils subdirectory

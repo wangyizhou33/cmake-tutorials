@@ -1,1 +1,1 @@
-add_library (Utils mysqrt.cc)
+add_library (Utils SHARED mysqrt.cc)
